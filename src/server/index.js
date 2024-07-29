@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection
-mongoose.connect("YOUR MONGODB URI", {
+mongoose.connect("http://localhost:27017", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
