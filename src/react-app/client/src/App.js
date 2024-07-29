@@ -20,10 +20,12 @@ const App = () => {
   }, []);
 
   const handleCreateNote = (newNote) => {
-    setNotes([...notes, newNote]);
     axios
       .post("http://localhost:5000/items/add", newNote)
-      .then((response) => console.log("Note created:", response.data))
+      .then((response) => {
+        console.log("Note created:", response.data);
+        setNotes([...notes, response.data]);
+      })
       .catch((error) => console.error("Error creating note:", error));
   };
 

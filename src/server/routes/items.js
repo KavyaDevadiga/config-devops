@@ -15,7 +15,10 @@ router.post("/add", (req, res) => {
 
   newNote
     .save()
-    .then(() => res.json("Note added!"))
+    .then((data) => {
+      console.log(data);
+      res.json(data);
+    })
     .catch((err) => res.status(400).json(`Error: ${err}`));
 });
 
@@ -40,6 +43,7 @@ router.put("/update/:id", (req, res) => {
 });
 
 router.delete("/:id", (req, res) => {
+  console.log("-------", req.params);
   Item.findByIdAndDelete(req.params.id)
     .then(() => res.json("Note deleted."))
     .catch((err) => res.status(400).json(`Error: ${err}`));
