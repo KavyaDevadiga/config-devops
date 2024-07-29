@@ -19,7 +19,7 @@ mongoose.connect("http://localhost:27017", {
 
 const connection = mongoose.connection;
 connection.once("open", () => {
-  console.log("MongoDB database connection established successfully");
+  console.log("Mongo connection established successfully");
 });
 
 const itemRouter = require("./routes/items");
